@@ -1,0 +1,3 @@
+macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+
+# vim: syntax=muttrc

@@ -1,0 +1,44 @@
+# General
+set realname = 'David Kendall'
+set header_cache = "~/.mutt_offline/workspace/cache/headers
+set message_cachedir = ~/.mutt_offline/workspace/cache/bodies
+set certificate_file = ~/.mutt_offline/workspace/certificates
+set tmpdir = ~/.mutt_offline/workspace/tmp
+set mailcap_path = ~/.mutt_offline/mailcap
+set alias_file = ~/.mutt_offline/aliases
+
+set mbox_type = Maildir
+set folder = ~/.mail
+set spoolfile = +/northumbria/INBOX
+set sort = reverse-date-received
+set timeout = 3
+set mail_check = 0
+set editor = vim
+auto_view text/html
+alternative_order text/plain text/html
+set wait_key = no
+set delete
+set quit
+
+
+# Send
+set sendmail = "/usr/bin/msmtp -a northumbria"
+set sendmail_wait = 0
+set from = "david.kendall@northumbria.ac.uk"
+set use_from = yes
+my_hdr Bcc: $from
+set fast_reply
+set reply_to
+set reverse_name
+set include
+set forward_format = "Fwd: %s"
+set forward_quote
+unset confirmappend
+set postponed = "+/northumbria/drafts"
+set record = "+/northumbria/sent"
+
+source $alias_file
+source ~/.mutt_offline/macros
+source ~/.mutt_offline/colors
+
+# vim: syntax=muttrc

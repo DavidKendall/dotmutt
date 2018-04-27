@@ -1,0 +1,50 @@
+# Mutt color file
+
+color normal		color7	        color0
+color indicator    	color0     	color7
+color status       	color0     	color2
+color tree         	color7      	color0
+color signature    	color5      	color0
+color message      	color12      	color0
+color attachment	color11      	color0
+color error        	color2      	color0
+color tilde        	color2     	color0
+
+color search       color2     default
+color markers      color2     default
+
+color quoted        color8    color0             # quoted text
+color quoted1       color8    color0
+color quoted2       color8    color0
+color quoted3       color8    color0
+color quoted4       color8    color0
+color quoted5       color8    color0
+color quoted6       color8    color0
+color quoted7       color8    color0
+color quoted8       color8    color0
+color quoted9       color8    color0
+
+color body          color12   default  "((ftp|http|https)://|news:|mailto:)[^ >)\"\t]+"
+# color body          cyan  default  "[-a-z_0-9.+]+@[-a-z_0-9.]+"
+# color body          red   default  "(^| )\\*[-a-z0-9*]+\\*[,.?]?[ \n]"
+# color body          green default  "(^| )_[-a-z0-9_]+_[,.?]?[\n]"
+# color body          red   default  "(^| )\\*[-a-z0-9*]+\\*[,.?]?[ \n]"
+# color body          green default  "(^| )_[-a-z0-9_]+_[,.?]?[ \n]"
+color index_number      color8          default            # neomutt extension
+color index		color7	        color0  ~F         # Flagged
+color index         	color5     	color0  ~N         # New
+color index         	color7     	color0  ~O
+color index         	color7     	color0  ~T         # Tagged
+color index         	color7     	color0  ~D         # Deleted
+
+# --- header ---
+
+color hdrdefault 	color5    	color0
+color header		color5    	color0    '^date:'
+color header		color5    	color0    '^(to|cc|bcc):'
+color header		color5    	color0    '^from:'
+color header		color5    	color0    '^subject:'
+color header    	color5     	color0    '^user-agent:'
+color header		color5     	color0    '^reply-to:'
+
+# vim: syntax=muttrc

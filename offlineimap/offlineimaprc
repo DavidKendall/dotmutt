@@ -1,0 +1,31 @@
+# offlineimap configuration for my northumbria email account
+
+[general]
+ui = basic
+accounts = Northumbria
+pythonfile = ~/.mutt_offline/offlineimap/offlineimap.py
+fsync = False
+maxsyncaccounts = 1
+
+[Account Northumbria]
+localrepository = Northumbria-local
+remoterepository = Northumbria-remote
+autorefresh = 5
+#quick = 10
+
+[Repository Northumbria-local]
+type = Maildir
+localfolders = ~/.mail/northumbria
+
+[Repository Northumbria-remote]
+type = IMAP
+remotehost = outlook.office365.com
+remoteuser = david.kendall@northumbria.ac.uk
+remotepasseval = get_pass()
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+nametrans = lambda folder : {'Sent Items' : 'sent',
+                             'Drafts' : 'drafts',
+                            }.get(folder,folder)
+folderfilter = lambda foldername: foldername in ["INBOX", "Sent Items", "Drafts"]
+#keepalive = 60
+#holdconnectionopen = yes
