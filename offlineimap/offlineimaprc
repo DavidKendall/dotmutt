@@ -11,7 +11,6 @@ maxsyncaccounts = 1
 localrepository = Northumbria-local
 remoterepository = Northumbria-remote
 autorefresh = 5
-#quick = 10
 
 [Repository Northumbria-local]
 type = Maildir
@@ -27,5 +26,3 @@ nametrans = lambda folder : {'Sent Items' : 'sent',
                              'Drafts' : 'drafts',
                             }.get(folder,folder)
 folderfilter = lambda foldername: foldername in ["INBOX", "Sent Items", "Drafts"]
-#keepalive = 60
-#holdconnectionopen = yes

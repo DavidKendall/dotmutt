@@ -38,7 +38,7 @@ set postponed = "+/northumbria/drafts"
 set record = "+/northumbria/sent"
 
 source $alias_file
-source ~/.mutt_offline/macros
 source ~/.mutt_offline/colors
+source ~/.mutt_offline/gpg.rc
 
 # vim: syntax=muttrc
