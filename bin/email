@@ -1,0 +1,2 @@
+#!/bin/bash
+xterm -title email -e start_mutt
