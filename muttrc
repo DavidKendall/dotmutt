@@ -9,7 +9,7 @@ set alias_file = ~/.mutt_offline/aliases
 
 set mbox_type = Maildir
 set folder = ~/.mail
-set spoolfile = +/northumbria/INBOX
+set spoolfile = +northumbria/INBOX
 set sort = reverse-date-received
 set timeout = 3
 set mail_check = 0
@@ -34,8 +34,8 @@ set include
 set forward_format = "Fwd: %s"
 set forward_quote
 unset confirmappend
-set postponed = "+/northumbria/drafts"
-set record = "+/northumbria/sent"
+set postponed = "+northumbria/drafts"
+set record = "+northumbria/sent"
 
 source $alias_file
 source ~/.mutt_offline/colors
