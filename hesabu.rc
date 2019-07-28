@@ -1,0 +1,13 @@
+# Read
+set mbox_type = Maildir
+set folder = ~/.mail
+set mbox = +hesabu/inbox
+
+
+# Send
+set sendmail = "/usr/bin/msmtp --tls-certcheck=off -a hesabu"
+set from = "dk0@hesabu.net"
+set postponed = "+hesabu/drafts"
+set record = "+hesabu/sent"
+
+# vim: syntax=muttrc

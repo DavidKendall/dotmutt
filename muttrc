@@ -6,25 +6,16 @@ set certificate_file = ~/.mutt_offline/workspace/certificates
 set tmpdir = ~/.mutt_offline/workspace/tmp
 set mailcap_path = ~/.mutt_offline/mailcap
 set alias_file = ~/.mutt_offline/aliases
-
-set mbox_type = Maildir
-set folder = ~/.mail
-set spoolfile = +northumbria/INBOX
 set sort = reverse-date-received
 set timeout = 3
 set mail_check = 0
 set editor = vim
-auto_view text/html
-alternative_order text/plain text/html
+auto_view text/calendar text/html
+alternative_order text/calendar text/plain text/html text/*
 set wait_key = no
 set delete
 set quit
-
-
-# Send
-set sendmail = "/usr/bin/msmtp -a northumbria"
 set sendmail_wait = 0
-set from = "david.kendall@northumbria.ac.uk"
 set use_from = yes
 my_hdr Bcc: $from
 set fast_reply
@@ -34,11 +25,39 @@ set include
 set forward_format = "Fwd: %s"
 set forward_quote
 unset confirmappend
-set postponed = "+northumbria/drafts"
-set record = "+northumbria/sent"
+
+
+set mbox_type = Maildir
+set folder = ~/.mail
+set spoolfile = +northumbria/INBOX
+
+mailboxes +northumbria/INBOX \
+          +northumbria/sent \
+	  +northumbria/drafts \
+          +gmail/inbox \
+	  +gmail/sent \
+	  +gmail/drafts \
+	  +hesabu/inbox \
+	  +hesabu/sent \
+	  +hesabu/drafts \
 
 source $alias_file
 source ~/.mutt_offline/colors
 source ~/.mutt_offline/gpg.rc
+source ~/.mutt_offline/northumbria.rc
 
+folder-hook northumbria/* source ~/.mutt_offline/northumbria.rc
+folder-hook gmail/* source ~/.mutt_offline/gmail.rc
+folder-hook hesabu/* source ~/.mutt_offline/hesabu.rc
+
+# Sidebar
+set sidebar_visible
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+bind index,pager \CP sidebar-prev
+# Ctrl-Shift-P – Previous Mailbox
+bind index,pager \CN sidebar-next
+# Ctrl-Shift-N – Next Mailbox
+bind index,pager \CO sidebar-open
+# Ctrl-Shift-O – Open Highlighted Mailbox
 # vim: syntax=muttrc

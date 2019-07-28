@@ -1,13 +1,13 @@
 #!/bin/bash
 pre_neomutt() {
 	read -sp "Passphrase: " phrase
-	echo $phrase | /usr/lib/gnupg/gpg-preset-passphrase --preset 87C86D4EDDA9D242F88B1D8574AC3574FF4C18F3
+	echo $phrase | /usr/lib/gnupg/gpg-preset-passphrase --preset 8951ADBCC53E2FD23A601766EB32F01A4B6B75CB
 	systemctl --user start offlineimap.service
 }
 
 post_neomutt() {
 	systemctl --user stop offlineimap.service
-        /usr/lib/gnupg/gpg-preset-passphrase --forget 87C86D4EDDA9D242F88B1D8574AC3574FF4C18F3
+        /usr/lib/gnupg/gpg-preset-passphrase --forget 8951ADBCC53E2FD23A601766EB32F01A4B6B75CB
 }
 
 trap post_neomutt EXIT SIGQUIT SIGTERM SIGINT

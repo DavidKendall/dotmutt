@@ -1,2 +1,3 @@
 text/html; elinks -dump ; copiousoutput;
+text/calendar; ~/.mutt_offline/bin/dump-ical.py %s; copiousoutput;
 

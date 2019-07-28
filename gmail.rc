@@ -1,0 +1,13 @@
+# Read
+set mbox_type = Maildir
+set folder = ~/.mail
+set mbox = +gmail/inbox
+
+
+# Send
+set sendmail = "/usr/bin/msmtp -a gmail"
+set from = "kendall.d.j@gmail.com"
+set postponed = "+gmail/drafts"
+set record = "+gmail/sent"
+
+# vim: syntax=muttrc

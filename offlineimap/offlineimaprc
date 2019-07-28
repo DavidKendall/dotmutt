@@ -2,15 +2,28 @@
 
 [general]
 ui = basic
-accounts = Northumbria
+accounts = Northumbria,Gmail,Hesabu
 pythonfile = ~/.mutt_offline/offlineimap/offlineimap.py
 fsync = False
-maxsyncaccounts = 1
+maxsyncaccounts = 3
 
 [Account Northumbria]
 localrepository = Northumbria-local
 remoterepository = Northumbria-remote
-autorefresh = 5
+autorefresh = 0.5
+quick = 10
+
+[Account Gmail]
+localrepository = Gmail-local
+remoterepository = Gmail-remote
+autorefresh = 0.5
+quick = 10
+
+[Account Hesabu]
+localrepository = Hesabu-local
+remoterepository = Hesabu-remote
+autorefresh = 0.5
+quick = 10
 
 [Repository Northumbria-local]
 type = Maildir
@@ -20,9 +33,47 @@ localfolders = ~/.mail/northumbria
 type = IMAP
 remotehost = outlook.office365.com
 remoteuser = david.kendall@northumbria.ac.uk
-remotepasseval = get_pass()
+remotepasseval = get_pass('northumbria')
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 nametrans = lambda folder : {'Sent Items' : 'sent',
                              'Drafts' : 'drafts',
                             }.get(folder,folder)
 folderfilter = lambda foldername: foldername in ["INBOX", "Sent Items", "Drafts"]
+keepalive = 60
+holdconnectionopen = yes
+
+[Repository Gmail-local]
+type = Maildir
+localfolders = ~/.mail/gmail
+
+[Repository Gmail-remote]
+type = Gmail
+remoteuser = kendall.d.j@gmail.com
+remotepasseval = get_pass('gmail')
+realdelete = no
+ssl_version = tls1_2
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+nametrans = lambda folder : {'INBOX' : 'inbox',
+                             'Sent' : 'sent',
+                             'Drafts' : 'drafts'}.get(folder, folder)
+folderfilter = lambda foldername: foldername in ['INBOX', 'Sent',
+                                                  'Drafts']
+
+[Repository Hesabu-local]
+type = Maildir
+localfolders = ~/.mail/hesabu
+
+[Repository Hesabu-remote]
+type = IMAP
+remotehost = mail.hesabu.net
+remoteuser = dk0@hesabu.net
+remotepasseval = get_pass('hesabu')
+cert_fingerprint = E0:3F:FB:7D:68:E9:0E:D0:15:42:1C:EE:70:67:6D:0C:53:A8:F2:1E:2C:B0:23:4E:72:7A:04:75:08:B0:30:5D
+nametrans = lambda folder : {'INBOX' : 'inbox',
+                             'Sent' : 'sent',
+                             'Drafts' : 'drafts',
+                            }.get(folder,folder)
+folderfilter = lambda foldername: foldername in ["INBOX", "Sent", "Drafts"]
+keepalive = 60
+holdconnectionopen = yes
+
