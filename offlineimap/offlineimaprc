@@ -58,6 +58,8 @@ nametrans = lambda folder : {'INBOX' : 'inbox',
                              'Drafts' : 'drafts'}.get(folder, folder)
 folderfilter = lambda foldername: foldername in ['INBOX', 'Sent',
                                                   'Drafts']
+keepalive = 60
+holdconnectionopen = yes
 
 [Repository Hesabu-local]
 type = Maildir
